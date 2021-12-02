@@ -1,12 +1,13 @@
 OPENWRT_GIT_REPO = https://github.com/openwrt/openwrt.git
-OPENWRT_GIT_COMMIT_REV = a0ef42e77c367312df7edc78dbd0d18a3faf9808
+#OPENWRT_GIT_COMMIT_REV = a0ef42e77c367312df7edc78dbd0d18a3faf9808
+OPENWRT_GIT_COMMIT_REV = remotes/origin/openwrt-18.06
 DIR_OPENWRT = openwrt
 DIR_OUTPUT = out
 DEFCONFIG_FILE = rpi3_bplus_defconfig
 ROOT = $(shell pwd)
 TARGET = target-aarch64_cortex-a53_musl
 BUILD_DIR = linux-bcm27xx_bcm2710
-FW_NAME = openwrt-bcm27xx-bcm2710-rpi-3-ext4-sysupgrade.img.gz
+FW_NAME = openwrt-brcm2708-bcm2710-rpi-3-ext4-sysupgrade.img.gz
 
 
 all : prepare build out
@@ -32,7 +33,7 @@ build :
 .PHONY: out
 out :
 	mkdir -p $(DIR_OUTPUT)
-	cp $(DIR_OPENWRT)/build_dir/$(TARGET)/$(BUILD_DIR)/tmp/$(FW_NAME) $(DIR_OUTPUT)
+	cp $(DIR_OPENWRT)/bin/targets/brcm2708/bcm2710/$(FW_NAME) $(DIR_OUTPUT)
 
 .PHONY: clean
 clean :
