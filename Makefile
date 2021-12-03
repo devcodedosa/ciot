@@ -16,6 +16,7 @@ all : prepare build out
 prepare :
 	@if [ ! -d $(DIR_OPENWRT) ]; then \
 		echo "Create OpenWRT Build Directory....."; \
+		git config --global http.sslverify false; \
 		git clone $(OPENWRT_GIT_REPO) $(DIR_OPENWRT); \
 		cp config/$(DEFCONFIG_FILE) $(DIR_OPENWRT); \
 		cd $(DIR_OPENWRT); \
