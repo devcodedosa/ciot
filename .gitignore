@@ -1,0 +1,11 @@
+openwrt/
+*.o
+.DS_Store
+.*.swp
+out/
+.emacs.desktop*
+TAGS*~
+.project
+.cproject
+.ccache
+.vscode*
